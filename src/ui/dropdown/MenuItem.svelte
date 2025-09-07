@@ -9,6 +9,6 @@
     children: Snippet
   } = $props();
 </script>
-<li class={className}>
+<li class={className} role="presentation">
   {@render children()}
 </li>

@@ -22,6 +22,7 @@ prototype that can customize class
   const popoverId = `popover-${uid}`;
   const anchorName = `--popover-anchor-${uid}`;
 
+  let button: HTMLButtonElement;
   let dropdown: HTMLUListElement;
 
   function close() {

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import { setContext } from "svelte";
+  import { getMenu } from "./internals";
 
   let {
     children,
@@ -15,8 +16,17 @@
   setContext("ctx-dropdown", {
     popoverId,
     anchorName,
+    getRoot() { return _root; }
   });
+
+  let _root: HTMLDivElement;
+
+  function onFocusout(e: FocusEvent) {
+    if (!_root.contains(e.relatedTarget)) {
+      getMenu(_root).hidePopover();
+    }
+  }
 </script>
-<div>
+<div bind:this={_root} onfocusout={onFocusout}>
   {@render children()}
 </div>
