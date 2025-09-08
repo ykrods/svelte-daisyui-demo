@@ -8,6 +8,7 @@
     dropdown = $bindable(),
     class: className = "",
     children,
+    ...props
   }: {
     open: boolean
     class: string
@@ -35,6 +36,7 @@
   style:position-anchor={anchorName}
   role="menu"
   onkeydown={onKeydown}
+  {...props}
 >
   {@render children()}
 </ul>
