@@ -27,7 +27,6 @@
       {#snippet content(close)}
         <li>
           <button
-            tabindex="-1"
             onclick={() => {
               console.log("edit")
               close();
@@ -37,7 +36,6 @@
         <li>
           <button
             class="text-error"
-            tabindex="-1"
             onclick={() => {
               console.log("delete")
               close();
@@ -45,7 +43,7 @@
           >Delete</button>
         </li>
         <li>
-          <a href="#" class="link" tabindex="-1">link</a>
+          <a href="#" class="link">link</a>
         </li>
       {/snippet}
     </SimpleDropdown>
@@ -54,7 +52,7 @@
     <h2 class="my-3 text-xl font-bold">Dropdown (structured component and accessibility support)</h2>
 
     <Dropdown.Root>
-      <Dropdown.Button>dropdown</Dropdown.Button>
+      <Dropdown.Button>open</Dropdown.Button>
       <Dropdown.Menu bind:dropdown aria-label="example menu">
         <Dropdown.MenuItem>
           <button
