@@ -18,13 +18,22 @@
   const { popoverId, anchorName, getRoot } = getContext("ctx-dropdown");
 
   function onKeydown(e: KeyboardEvent) {
-    console.log(e.key);
+    const candidates = getCandidates(getRoot());
+    if (candidates.length === 0) {
+      return;
+    }
+
     if (e.key === "ArrowUp" || e.key === "ArrowDown") {
       const d = e.key === "ArrowDown" ? +1 : -1;
-      const candidates = getCandidates(getRoot());
       const cur = candidates.findIndex(o => o === e.target);
       const idx = (cur + d + candidates.length) % candidates.length;
       candidates[idx].focus();
+    }
+    if (e.key === "Home") {
+      candidates[0].focus();
+    }
+    if (e.key === "End") {
+      candidates[candidates.length - 1].focus();
     }
   }
 </script>
